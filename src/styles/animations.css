@@ -1,0 +1,113 @@
+/* Hero background + overlays (granulado y humo) */
+.hero-bg {
+  /* Main hero image - using placeholder */
+  background-image:
+    url("/assets/images/espectra.png"),
+    radial-gradient(circle at 20% 10%, rgba(161, 62, 34, 0.1), transparent 15%),
+    linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.65));
+  background-size:
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-position:
+    top left,
+    20% 10%,
+    top left;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+/* Luz cinematográfica lateral */
+.hero-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    800px 400px at 100% 0%,
+    rgba(161, 62, 34, 0.06),
+    transparent 80%
+  );
+  pointer-events: none;
+}
+
+.hero-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    600px 400px at 10% 20%,
+    rgba(161, 62, 34, 0.08),
+    transparent 20%
+  );
+}
+
+/* Grain texture (subtle) */
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  /* Grain texture removed - can be added back with a real texture file */
+  opacity: 0.04;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* Small flicker */
+@keyframes flicker {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.985;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* Luz cinematográfica pulsante */
+@keyframes cinema-light {
+  0% {
+    opacity: 0.08;
+  }
+  50% {
+    opacity: 0.12;
+  }
+  100% {
+    opacity: 0.08;
+  }
+}
+
+/* Slide urbano */
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Fade up con escala */
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.hero-bg,
+.hero-overlay {
+  animation: flicker 4s infinite;
+}
+
+.cinema-light-pulse {
+  animation: cinema-light 3s ease-in-out infinite;
+}
