@@ -15,7 +15,7 @@ export default function SocialsPlaceholder() {
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-accent uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">
@@ -33,7 +33,7 @@ export default function SocialsPlaceholder() {
               rel="noopener noreferrer"
               initial={{ opacity: 0, x: index % 2 === 0 ? -80 : 80 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="w-64 h-40 bg-graySoft rounded-lg overflow-hidden hover:shadow-[0_0_30px_rgba(161,62,34,0.3)] transition-all group relative border-2 border-accent/20 hover:border-accent"
             >

@@ -1,10 +1,19 @@
 import React from "react";
 import { motion } from "framer-motion";
+import heroImage from "../../assets/images/espectra-cancion.png";
 
 export default function Hero() {
   return (
     <section className="relative h-screen flex items-center">
-      <div className="absolute inset-0 hero-bg" />
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
 
       <div className="absolute inset-0 hero-overlay pointer-events-none" />
 

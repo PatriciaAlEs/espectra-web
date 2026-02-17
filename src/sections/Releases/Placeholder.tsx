@@ -9,7 +9,7 @@ export default function ReleasesPlaceholder() {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-accent uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">
@@ -22,7 +22,7 @@ export default function ReleasesPlaceholder() {
           <motion.div
             initial={{ opacity: 0, x: -80 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="bg-graySoft rounded-xl p-6 hover:border-2 hover:border-accent transition-cinema cinema-shadow group cursor-pointer relative overflow-hidden"
           >
@@ -43,7 +43,7 @@ export default function ReleasesPlaceholder() {
           <motion.div
             initial={{ opacity: 0, x: 80 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="bg-graySoft rounded-xl p-6 hover:border-2 hover:border-accent transition-cinema cinema-shadow group cursor-pointer relative overflow-hidden"
           >

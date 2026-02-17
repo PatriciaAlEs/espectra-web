@@ -9,7 +9,7 @@ export default function EventsPlaceholder() {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.6 }}
         >
           <h3 className="text-accent uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">
@@ -22,7 +22,7 @@ export default function EventsPlaceholder() {
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="p-6 bg-graySoft rounded-lg flex flex-col md:flex-row md:justify-between items-start md:items-center hover:shadow-lg hover:border-2 hover:border-accent transition-all group relative overflow-hidden"
           >
@@ -42,7 +42,7 @@ export default function EventsPlaceholder() {
           <motion.div
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
+            viewport={{ once: false }}
             transition={{ duration: 0.6, delay: 0.2 }}
             className="p-6 bg-graySoft rounded-lg flex flex-col md:flex-row md:justify-between items-start md:items-center hover:shadow-lg hover:border-2 hover:border-accent transition-all group relative overflow-hidden"
           >

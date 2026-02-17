@@ -1,18 +1,9 @@
 /* Hero background + overlays (granulado y humo) */
 .hero-bg {
-  /* Main hero image - using placeholder */
-  background-image:
-    url("/assets/images/espectra.png"),
-    radial-gradient(circle at 20% 10%, rgba(161, 62, 34, 0.1), transparent 15%),
-    linear-gradient(180deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.65));
-  background-size:
-    100% 100%,
-    100% 100%,
-    100% 100%;
-  background-position:
-    top left,
-    20% 10%,
-    top left;
+  /* Main hero image */
+  background-image: url("/assets/images/espectra-cancion.png");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }

@@ -9,7 +9,7 @@ export default function AboutPlaceholder() {
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.7 }}
           className="md:w-1/2 relative group"
         >
@@ -23,7 +23,7 @@ export default function AboutPlaceholder() {
         <motion.div
           initial={{ opacity: 0, x: 100 }}
           whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false }}
           transition={{ duration: 0.7, delay: 0.2 }}
           className="md:w-1/2 mt-8 md:mt-0"
         >
