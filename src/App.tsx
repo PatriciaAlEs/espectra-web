@@ -39,7 +39,7 @@ export default function App() {
 
       <Contact />
 
-      <AudioPlayer src="/assets/audio/song.mp3" title="Espectra" />
+      <AudioPlayer src="/assets/audio/POLLOCK.wav" title="POLLOCK" />
     </div>
   );
 }
