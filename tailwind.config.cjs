@@ -15,7 +15,9 @@ module.exports = {
                 textPrimary: '#EAE9E8'
             },
             fontFamily: {
-                display: ['Inter', 'system-ui', 'sans-serif']
+                display: ['Inter', 'system-ui', 'sans-serif'],
+                bebas: ['"Bebas Neue"', 'cursive'],
+                barlow: ['"Barlow Condensed"', 'sans-serif']
             }
         }
     },

@@ -81,11 +81,15 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-6 md:px-12">
+    <section className="py-20 px-6 md:px-12 relative overflow-hidden">
       <div className="max-w-2xl mx-auto">
         {/* Botón de apertura/cierre desplegable */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="w-full relative px-6 py-4 mb-6 group overflow-hidden"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -111,7 +115,7 @@ const Contact: React.FC = () => {
 
           {/* Contenido del botón */}
           <div className="relative flex items-center justify-between">
-            <h2 className="text-2xl md:text-3xl font-bold text-textPrimary">
+            <h2 className="font-bebas text-textPrimary text-4xl tracking-wider">
               CONTACTO
             </h2>
             <motion.div
@@ -145,7 +149,7 @@ const Contact: React.FC = () => {
                 <div className="absolute top-0 left-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-br-full blur-2xl opacity-0 group-hover:opacity-100 -z-10" />
                 <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-tl from-accentGlow/20 to-transparent rounded-tl-full blur-2xl opacity-0 group-hover:opacity-100 -z-10" />
 
-                <p className="text-center text-textPrimary/80 mb-8 text-lg">
+                <p className="text-center text-textPrimary/80 mb-8 text-lg font-barlow">
                   ¿Interesado en colaborar o tener más información? Déjanos tu
                   mensaje.
                 </p>
@@ -155,7 +159,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-semibold mb-2 text-textPrimary"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
                     >
                       Nombre
                     </label>
@@ -167,7 +171,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="Tu nombre"
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-all placeholder-textPrimary/50"
+                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 font-barlow"
                     />
                   </div>
 
@@ -175,7 +179,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-semibold mb-2 text-textPrimary"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
                     >
                       Email
                     </label>
@@ -187,7 +191,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="tu@email.com"
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-all placeholder-textPrimary/50"
+                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 font-barlow"
                     />
                   </div>
 
@@ -195,7 +199,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-semibold mb-2 text-textPrimary"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
                     >
                       Asunto
                     </label>
@@ -207,7 +211,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="¿De qué se trata?"
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-all placeholder-textPrimary/50"
+                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 font-barlow"
                     />
                   </div>
 
@@ -215,7 +219,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-semibold mb-2 text-textPrimary"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
                     >
                       Mensaje
                     </label>
@@ -227,7 +231,7 @@ const Contact: React.FC = () => {
                       required
                       placeholder="Tu mensaje..."
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border border-accent/30 focus:outline-none focus:border-accent focus:ring-1 focus:ring-accent/50 transition-all placeholder-textPrimary/50 resize-none"
+                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 resize-none font-barlow"
                     />
                   </div>
 
@@ -254,10 +258,10 @@ const Contact: React.FC = () => {
                     disabled={status.type === "loading"}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-3 px-6 rounded-lg bg-accent hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed text-dark font-bold text-lg transition-all cinema-shadow"
+                    className="w-full py-4 px-6 rounded-lg bg-accent hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed text-dark font-bebas text-2xl tracking-wider transition-all cinema-shadow"
                   >
                     {status.type === "loading"
-                      ? "Enviando..."
+                      ? "ENVIANDO..."
                       : "ENVIAR MENSAJE"}
                   </motion.button>
                 </form>
