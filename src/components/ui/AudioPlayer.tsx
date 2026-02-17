@@ -62,13 +62,14 @@ export default function AudioPlayer({
   const togglePlay = () => {
     if (!audioRef.current) return;
 
-    if (isPlaying) {
-      audioRef.current.pause();
-    } else {
+    // Usar el estado del elemento audio directamente
+    if (audioRef.current.paused) {
       audioRef.current.play().catch((err) => {
         console.error("Error al reproducir:", err);
         setHasError(true);
       });
+    } else {
+      audioRef.current.pause();
     }
   };
 
