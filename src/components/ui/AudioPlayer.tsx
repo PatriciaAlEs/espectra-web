@@ -16,6 +16,14 @@ export default function AudioPlayer({
   const [isLoading, setIsLoading] = useState(false);
   const [hasError, setHasError] = useState(false);
 
+  // Inicializar el volumen cuando el componente monta
+  useEffect(() => {
+    if (audioRef.current) {
+      audioRef.current.volume = 0.5;
+    }
+  }, []);
+
+  // Listeners para cambios en el audio element
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
@@ -28,29 +36,39 @@ export default function AudioPlayer({
       setIsLoading(false);
       console.error("Error loading audio:", audio.error);
     };
+    const handlePlay = () => {
+      setIsPlaying(true);
+      setHasError(false);
+    };
+    const handlePause = () => {
+      setIsPlaying(false);
+    };
 
     audio.addEventListener("loadstart", handleLoadStart);
     audio.addEventListener("canplay", handleCanPlay);
     audio.addEventListener("error", handleError);
+    audio.addEventListener("play", handlePlay);
+    audio.addEventListener("pause", handlePause);
 
     return () => {
       audio.removeEventListener("loadstart", handleLoadStart);
       audio.removeEventListener("canplay", handleCanPlay);
       audio.removeEventListener("error", handleError);
+      audio.removeEventListener("play", handlePlay);
+      audio.removeEventListener("pause", handlePause);
     };
   }, []);
 
   const togglePlay = () => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.pause();
-      } else {
-        audioRef.current.play().catch((err) => {
-          console.error("Autoplay prevented or audio loading failed:", err);
-          setHasError(true);
-        });
-      }
-      setIsPlaying(!isPlaying);
+    if (!audioRef.current) return;
+
+    if (isPlaying) {
+      audioRef.current.pause();
+    } else {
+      audioRef.current.play().catch((err) => {
+        console.error("Error al reproducir:", err);
+        setHasError(true);
+      });
     }
   };
 
@@ -64,14 +82,7 @@ export default function AudioPlayer({
 
   return (
     <>
-      <audio
-        ref={audioRef}
-        src={src}
-        loop
-        preload="auto"
-        onPlay={() => setIsPlaying(true)}
-        onPause={() => setIsPlaying(false)}
-      />
+      <audio ref={audioRef} src={src} loop preload="auto" />
 
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
