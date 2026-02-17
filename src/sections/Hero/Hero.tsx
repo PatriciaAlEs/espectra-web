@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import heroImage from "../../assets/images/espectra-cancion.png";
+import heroImage from "../../assets/images/espectra-BN.png";
 
 export default function Hero() {
   return (
