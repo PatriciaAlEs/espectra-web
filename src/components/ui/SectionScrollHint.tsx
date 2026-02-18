@@ -3,7 +3,10 @@ import { motion } from "framer-motion";
 
 export default function SectionScrollHint() {
   const [nextSectionId, setNextSectionId] = React.useState<string | null>(null);
+  const [bottomOffset, setBottomOffset] = React.useState(16);
   const isAtPageEnd = nextSectionId === null;
+  const baseBottomOffset = 16;
+  const footerGapBottomOffset = 56;
 
   React.useEffect(() => {
     const updateNextSection = () => {
@@ -36,6 +39,18 @@ export default function SectionScrollHint() {
 
       const nextSection = sections[currentIndex + 1] ?? null;
       setNextSectionId(nextSection ? nextSection.id : null);
+
+      const footer = document.querySelector<HTMLElement>("footer");
+      if (!footer) {
+        setBottomOffset(baseBottomOffset);
+        return;
+      }
+
+      const footerTopInViewport = footer.getBoundingClientRect().top;
+      const overlap = window.innerHeight - footerTopInViewport;
+      setBottomOffset(
+        overlap > 0 ? overlap + footerGapBottomOffset : baseBottomOffset,
+      );
     };
 
     updateNextSection();
@@ -67,7 +82,8 @@ export default function SectionScrollHint() {
       whileHover={{ scale: 1.04 }}
       whileTap={{ scale: 0.97 }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 flex items-center justify-center cursor-pointer w-11 h-11 rounded-full border border-accentBright/55 bg-black/45 backdrop-blur-sm shadow-[0_0_16px_rgba(255,79,0,0.3)]"
+      className="fixed left-1/2 -translate-x-1/2 z-50 flex items-center justify-center cursor-pointer w-11 h-11 rounded-full border border-accentBright/55 bg-black/45 backdrop-blur-sm shadow-[0_0_16px_rgba(255,79,0,0.3)]"
+      style={{ bottom: `${bottomOffset}px` }}
       aria-label={
         isAtPageEnd ? "Volver al inicio" : "Ir a la siguiente sección"
       }

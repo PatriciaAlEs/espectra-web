@@ -92,7 +92,7 @@ export default function Hero() {
             <div className="inline-flex items-center">
               <AudioPlayer
                 src="/assets/audio/POLLOCK.wav"
-                title="Click aquí para escuchar mi último tema"
+                title="Haz click aqui para escuchar mi último tema"
                 variant="inline"
                 className="max-w-full"
               />

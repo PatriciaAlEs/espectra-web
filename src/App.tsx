@@ -53,6 +53,25 @@ export default function App() {
 
       <Contact />
 
+      <footer className="mt-10 border-t border-accentBright/25 bg-dark/70">
+        <Container>
+          <div className="py-6 text-center text-sm md:text-base text-textPrimary/75 tracking-wide">
+            Proyecto diseñado y desarrollado por
+            <span className="text-accentBright font-semibold">
+              {" "}
+              Patricia Alvarez
+            </span>
+            . Contacto:{" "}
+            <a
+              href="mailto:patriciaalvarezestevez@gmail.com"
+              className="text-accentBright hover:text-accentGlow transition-smooth"
+            >
+              patriciaalvarezestevez@gmail.com
+            </a>
+          </div>
+        </Container>
+      </footer>
+
       <SectionScrollHint />
     </div>
   );
