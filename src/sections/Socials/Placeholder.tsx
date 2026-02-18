@@ -1,12 +1,69 @@
 import React from "react";
 import { motion } from "framer-motion";
-import imgPlaceholder from "../../assets/images/espectra.png";
 
 const socials = [
   { name: "Instagram", url: "https://www.instagram.com/espectra.cks/" },
   { name: "YouTube", url: "https://www.youtube.com/watch?v=RMNiKpaKgdU" },
   { name: "Spotify", url: "https://www.instagram.com/espectra.cks/" },
 ];
+
+function SocialIcon({ name }: { name: string }) {
+  const iconClassName = "w-16 h-16 text-accentBright";
+
+  if (name === "Instagram") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className={iconClassName}
+        aria-hidden="true"
+      >
+        <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+        <circle cx="12" cy="12" r="4" />
+        <circle cx="17.5" cy="6.8" r="1" fill="currentColor" stroke="none" />
+      </svg>
+    );
+  }
+
+  if (name === "YouTube") {
+    return (
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        className={iconClassName}
+        aria-hidden="true"
+      >
+        <rect x="2.5" y="6" width="19" height="12" rx="4" />
+        <path
+          d="M10 9.5L15 12L10 14.5V9.5Z"
+          fill="currentColor"
+          stroke="none"
+        />
+      </svg>
+    );
+  }
+
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.8"
+      className={iconClassName}
+      aria-hidden="true"
+    >
+      <circle cx="12" cy="12" r="9" />
+      <path d="M8.5 14.5C9.6 13.7 11 13.2 12.6 13.2C14.1 13.2 15.5 13.6 16.6 14.4" />
+      <path d="M7.4 11.8C8.8 10.8 10.6 10.2 12.7 10.2C14.7 10.2 16.5 10.8 17.9 11.8" />
+      <path d="M6.3 9.2C8.1 7.9 10.3 7.2 12.8 7.2C15.3 7.2 17.5 8 19.3 9.3" />
+      <circle cx="8.5" cy="16.8" r="1.2" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
 
 type SocialCardMotion = {
   direction: -1 | 1;
@@ -87,17 +144,12 @@ export default function SocialsPlaceholder() {
               custom={{ direction: index % 2 === 0 ? -1 : 1, order: index }}
               className="w-64 h-40 bg-graySoft rounded-3xl overflow-hidden transition-[border-color,box-shadow] duration-300 ease-out group relative border-2 border-accentBright/28 hover:border-accentBright will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.12)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_20px_rgba(255,79,0,0.2)]"
             >
-              <div className="relative w-full h-full">
-                <img
-                  src={imgPlaceholder}
-                  alt={social.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-all duration-500"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-accentBright/72 via-black/45 to-transparent opacity-80 group-hover:opacity-90 transition-all" />
+              <div className="relative w-full h-full bg-gradient-to-t from-black/85 via-graySoft/95 to-black/80">
+                <div className="absolute inset-0 bg-gradient-to-t from-accentBright/45 via-black/35 to-transparent opacity-75 group-hover:opacity-90 transition-all" />
                 <div className="absolute inset-0 flex items-center justify-center">
-                  <span className="relative z-10 text-textPrimary font-bebas text-3xl tracking-wider group-hover:scale-110 transition-transform">
-                    {social.name}
-                  </span>
+                  <div className="relative z-10 group-hover:scale-110 transition-transform">
+                    <SocialIcon name={social.name} />
+                  </div>
                 </div>
               </div>
             </motion.a>
