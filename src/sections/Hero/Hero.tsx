@@ -6,37 +6,6 @@ import AudioPlayer from "../../components/ui/AudioPlayer";
 export default function Hero() {
   const title = "ESPECTRA";
 
-  const titleContainerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.2,
-        delayChildren: 0.3,
-      },
-    },
-  };
-
-  const letterVariants = {
-    hidden: {
-      opacity: 0,
-      y: -190,
-      rotate: -16,
-      filter: "blur(8px)",
-    },
-    visible: {
-      opacity: 1,
-      y: 0,
-      rotate: 0,
-      filter: "blur(0px)",
-      transition: {
-        type: "spring",
-        stiffness: 82,
-        damping: 11,
-        mass: 1.5,
-      },
-    },
-  };
-
   return (
     <section className="relative h-screen flex items-center">
       <div
@@ -53,26 +22,14 @@ export default function Hero() {
 
       <div className="relative z-10 w-full px-6 md:px-12">
         <div className="max-w-4xl">
-          <motion.h1
-            variants={titleContainerVariants}
-            initial="hidden"
-            animate="visible"
-            className="text-8xl md:text-[11rem] font-extrabold uppercase leading-[0.9] tracking-wider"
+          <h1
+            className="whitespace-nowrap text-[clamp(1.9rem,9.5vw,2.25rem)] md:text-[11rem] font-extrabold uppercase leading-[0.9] tracking-[0.06em] md:tracking-[0.1em]"
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
-              letterSpacing: "0.1em",
             }}
           >
-            {title.split("").map((letter, index) => (
-              <motion.span
-                key={`${letter}-${index}`}
-                variants={letterVariants}
-                className="inline-block"
-              >
-                {letter}
-              </motion.span>
-            ))}
-          </motion.h1>
+            {title}
+          </h1>
 
           <motion.p
             initial={{ opacity: 0 }}
