@@ -50,6 +50,7 @@ export default function Hero() {
               <AudioPlayer
                 src="/assets/audio/POLLOCK.wav"
                 title="Haz click aqui para escuchar mi último tema"
+                mobileTitle="Último tema"
                 variant="inline"
                 className="max-w-full"
               />

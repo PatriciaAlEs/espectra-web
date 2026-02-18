@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 interface AudioPlayerProps {
   src: string;
   title?: string;
+  mobileTitle?: string;
   variant?: "fixed" | "inline";
   className?: string;
 }
@@ -11,6 +12,7 @@ interface AudioPlayerProps {
 export default function AudioPlayer({
   src,
   title = "Escucha",
+  mobileTitle,
   variant = "fixed",
   className = "",
 }: AudioPlayerProps) {
@@ -113,9 +115,14 @@ export default function AudioPlayer({
             </button>
 
             {variant === "inline" && (
-              <span className="text-sm md:text-base text-textPrimary/90 whitespace-nowrap select-none font-medium tracking-wide">
-                {title}
-              </span>
+              <>
+                <span className="text-sm text-textPrimary/90 whitespace-nowrap select-none font-medium tracking-wide md:hidden">
+                  {mobileTitle ?? title}
+                </span>
+                <span className="hidden md:inline text-base text-textPrimary/90 whitespace-nowrap select-none font-medium tracking-wide">
+                  {title}
+                </span>
+              </>
             )}
 
             <div className="flex items-center gap-2 bg-dark rounded-2xl px-3 py-1.5 border border-accent/20">
