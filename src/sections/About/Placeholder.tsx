@@ -17,8 +17,8 @@ export default function AboutPlaceholder() {
           initial={{ opacity: 0, x: -sideOffset, scale: 0.985 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.12 }}
-          transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ x: 4, transition: { duration: 0.25 } }}
+          transition={{ duration: 0.84, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ x: 4, transition: { duration: 0.35 } }}
           className="md:w-1/2 relative group"
         >
           <div className="absolute inset-0 bg-accentBright/12 blur-3xl opacity-0 group-hover:opacity-40 transition-all duration-700 rounded-2xl" />
@@ -32,8 +32,8 @@ export default function AboutPlaceholder() {
           initial={{ opacity: 0, x: sideOffset, scale: 0.985 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.12 }}
-          transition={{ duration: 0.62, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          whileHover={{ x: -4, transition: { duration: 0.25 } }}
+          transition={{ duration: 0.84, delay: 0.14, ease: [0.16, 1, 0.3, 1] }}
+          whileHover={{ x: -4, transition: { duration: 0.35 } }}
           className="md:w-1/2 mt-8 md:mt-0"
         >
           <h3 className="text-accentBright uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">

@@ -89,7 +89,7 @@ const Contact: React.FC = () => {
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.85 }}
           className="w-full relative px-6 py-4 mb-6 group overflow-hidden rounded-2xl"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
@@ -120,7 +120,7 @@ const Contact: React.FC = () => {
             </h2>
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.45 }}
               className="text-accentBright text-2xl"
             >
               ▼
@@ -135,7 +135,7 @@ const Contact: React.FC = () => {
               initial={{ opacity: 0, height: 0, y: -20 }}
               animate={{ opacity: 1, height: "auto", y: 0 }}
               exit={{ opacity: 0, height: 0, y: -20 }}
-              transition={{ duration: 0.4, ease: "easeInOut" }}
+              transition={{ duration: 0.58, ease: "easeInOut" }}
               className="overflow-hidden"
             >
               <motion.div
@@ -240,6 +240,7 @@ const Contact: React.FC = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, ease: "easeOut" }}
                       className={`p-4 rounded-xl text-center font-semibold ${
                         status.type === "success"
                           ? "bg-accentBright/20 text-accentGlow border border-accentBright/50"
@@ -275,6 +276,7 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
             className="mt-8 p-4 bg-yellow-900/20 border border-yellow-700/50 rounded-xl text-sm text-textPrimary/70"
           >
             <strong>⚙️ Configuración necesaria:</strong>

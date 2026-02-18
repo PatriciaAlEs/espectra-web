@@ -22,7 +22,7 @@ export default function Hero() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.8 }}
             className="text-7xl md:text-9xl font-extrabold uppercase leading-tight tracking-wider"
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
@@ -35,7 +35,7 @@ export default function Hero() {
           <motion.p
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.15, duration: 0.5 }}
+            transition={{ delay: 0.2, duration: 0.7 }}
             className="mt-10 max-w-xl text-lg text-textPrimary/85"
           >
             Love music hate fascism
@@ -44,7 +44,7 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.3 }}
+            transition={{ delay: 0.4, duration: 0.7 }}
             className="mt-14 flex items-center gap-4"
           >
             <a
@@ -61,7 +61,7 @@ export default function Hero() {
         <div className="absolute bottom-12 left-6 md:left-12">
           <motion.div
             animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 1.6 }}
+            transition={{ repeat: Infinity, duration: 2.2 }}
             className="w-6 h-10 border-2 border-accent/60 rounded-2xl flex items-end justify-center px-1"
           >
             <div className="w-1 h-2 bg-accentBright rounded-sm mb-1" />

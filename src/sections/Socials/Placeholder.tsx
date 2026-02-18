@@ -33,8 +33,8 @@ export default function SocialsPlaceholder() {
       opacity: 1,
       x: 0,
       transition: {
-        duration: isDesktop ? 0.62 : 0.55,
-        ease: [0.25, 1, 0.5, 1],
+        duration: isDesktop ? 1.08 : 0.88,
+        ease: [0.22, 1, 0.36, 1],
         delay: order * 0.045,
       },
     }),
@@ -58,7 +58,7 @@ export default function SocialsPlaceholder() {
           whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.2, margin: "0px 0px -2% 0px" }}
           transition={{
-            duration: isDesktop ? 0.72 : 0.62,
+            duration: isDesktop ? 1.16 : 0.94,
             ease: [0.22, 1, 0.36, 1],
           }}
         >
