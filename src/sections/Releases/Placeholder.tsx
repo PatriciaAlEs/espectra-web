@@ -5,34 +5,41 @@ import imgPlaceholder from "../../assets/images/espectra.png";
 export default function ReleasesPlaceholder() {
   const viewportWidth =
     typeof window !== "undefined" ? window.innerWidth : 1280;
-  const sideOffset =
-    viewportWidth >= 768
-      ? Math.max(160, Math.round(viewportWidth * 0.2))
-      : Math.max(60, Math.round(viewportWidth * 0.18));
+  const isDesktop = viewportWidth >= 768;
+  const revealDuration = isDesktop ? 0.82 : 0.64;
+  const sideOffset = isDesktop
+    ? Math.max(160, Math.round(viewportWidth * 0.2))
+    : Math.max(60, Math.round(viewportWidth * 0.18));
 
   const releaseCardVariants = {
     hidden: (index: number) => ({
       opacity: 0,
       x: index % 2 === 0 ? -sideOffset : sideOffset,
-      scale: 0.98,
+      y: 10,
+      scale: 0.985,
     }),
     visible: (index: number) => ({
       opacity: 1,
       x: 0,
+      y: 0,
       scale: 1,
       transition: {
-        duration: 0.64,
-        ease: [0.16, 1, 0.3, 1],
+        type: "spring",
+        stiffness: isDesktop ? 115 : 135,
+        damping: isDesktop ? 30 : 26,
+        mass: 0.95,
+        restDelta: 0.001,
+        restSpeed: 0.01,
         delay: 0.06 * (index + 1),
       },
     }),
     hover: {
-      y: -5,
-      scale: 1.01,
+      y: isDesktop ? -3 : -4,
+      scale: isDesktop ? 1.006 : 1.01,
       transition: {
         type: "spring",
-        stiffness: 250,
-        damping: 22,
+        stiffness: isDesktop ? 170 : 240,
+        damping: isDesktop ? 28 : 22,
         mass: 0.8,
       },
     },
@@ -45,7 +52,10 @@ export default function ReleasesPlaceholder() {
           initial={{ opacity: 0, x: -sideOffset + 10, scale: 0.985 }}
           whileInView={{ opacity: 1, x: 0, scale: 1 }}
           viewport={{ once: false, amount: 0.12 }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+          transition={{
+            duration: isDesktop ? 0.78 : 0.6,
+            ease: [0.16, 1, 0.3, 1],
+          }}
         >
           <h3 className="text-accentBright uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">
             Lanzamientos
@@ -59,7 +69,7 @@ export default function ReleasesPlaceholder() {
             initial="hidden"
             whileInView="visible"
             whileHover="hover"
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: false, amount: 0.18, margin: "0px 0px -8% 0px" }}
             custom={0}
             className="bg-graySoft rounded-3xl p-6 border border-accentBright/20 hover:border-accentBright/60 transition-cinema group cursor-pointer relative overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.08)] hover:shadow-[0_14px_34px_rgba(0,0,0,0.38),0_0_18px_rgba(255,79,0,0.16)]"
           >
@@ -82,7 +92,7 @@ export default function ReleasesPlaceholder() {
             initial="hidden"
             whileInView="visible"
             whileHover="hover"
-            viewport={{ once: false, amount: 0.1 }}
+            viewport={{ once: false, amount: 0.18, margin: "0px 0px -8% 0px" }}
             custom={1}
             className="bg-graySoft rounded-3xl p-6 border border-accentBright/20 hover:border-accentBright/60 transition-cinema group cursor-pointer relative overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.08)] hover:shadow-[0_14px_34px_rgba(0,0,0,0.38),0_0_18px_rgba(255,79,0,0.16)]"
           >
