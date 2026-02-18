@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import heroImage from "../../assets/images/espectra-BN.png";
+import AudioPlayer from "../../components/ui/AudioPlayer";
 
 export default function Hero() {
   const title = "ESPECTRA";
@@ -85,17 +86,17 @@ export default function Hero() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.7 }}
-            className="mt-14 flex items-center gap-4"
+            transition={{ delay: 0.5, duration: 0.75 }}
+            className="mt-14"
           >
-            <a
-              href="https://www.youtube.com/watch?v=RMNiKpaKgdU"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-10 py-4.5 rounded-2xl bg-accentBright text-black text-lg md:text-xl font-semibold tracking-wide shadow-[0_0_32px_rgba(255,79,0,0.45)] hover:brightness-110 hover:scale-[1.03] transition-cinema"
-            >
-              Último tema
-            </a>
+            <div className="inline-flex items-center">
+              <AudioPlayer
+                src="/assets/audio/POLLOCK.wav"
+                title="Click aquí para escuchar mi último tema"
+                variant="inline"
+                className="max-w-full"
+              />
+            </div>
           </motion.div>
         </div>
 

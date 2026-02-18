@@ -6,7 +6,6 @@ import EventsPlaceholder from "./sections/Events/Placeholder";
 import SocialsPlaceholder from "./sections/Socials/Placeholder";
 import Contact from "./sections/Contact/Contact";
 import Container from "./components/layout/Container";
-import AudioPlayer from "./components/ui/AudioPlayer";
 
 function SectionDivider({ className = "" }: { className?: string }) {
   return (
@@ -52,8 +51,6 @@ export default function App() {
       <SectionDivider />
 
       <Contact />
-
-      <AudioPlayer src="/assets/audio/POLLOCK.wav" title="POLLOCK" />
     </div>
   );
 }

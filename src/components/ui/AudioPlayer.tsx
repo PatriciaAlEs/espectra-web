@@ -4,11 +4,15 @@ import { motion } from "framer-motion";
 interface AudioPlayerProps {
   src: string;
   title?: string;
+  variant?: "fixed" | "inline";
+  className?: string;
 }
 
 export default function AudioPlayer({
   src,
   title = "Escucha",
+  variant = "fixed",
+  className = "",
 }: AudioPlayerProps) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -77,9 +81,11 @@ export default function AudioPlayer({
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ delay: 1 }}
-        className="fixed bottom-6 right-6 z-50"
+        className={`${variant === "fixed" ? "fixed bottom-6 right-6 z-50" : "relative"} ${className}`.trim()}
       >
-        <div className="relative bg-graySoft rounded-full p-4 border border-accentBright/20 shadow-lg hover:shadow-[0_0_26px_rgba(255,79,0,0.28)] transition-smooth">
+        <div
+          className={`relative bg-graySoft border border-accentBright/20 shadow-lg hover:shadow-[0_0_26px_rgba(255,79,0,0.28)] transition-smooth ${variant === "fixed" ? "rounded-full p-4" : "rounded-2xl px-3 py-2.5"}`}
+        >
           <div className="flex items-center gap-3 relative z-10">
             <button
               onClick={togglePlay}
@@ -105,6 +111,12 @@ export default function AudioPlayer({
                 </svg>
               )}
             </button>
+
+            {variant === "inline" && (
+              <span className="text-sm md:text-base text-textPrimary/90 whitespace-nowrap select-none font-medium tracking-wide">
+                {title}
+              </span>
+            )}
 
             <div className="flex items-center gap-2 bg-dark rounded-2xl px-3 py-1.5 border border-accent/20">
               <input
