@@ -79,12 +79,12 @@ export default function AudioPlayer({
         transition={{ delay: 1 }}
         className="fixed bottom-6 right-6 z-50"
       >
-        <div className="relative bg-graySoft rounded-full p-4 shadow-lg hover:shadow-[0_0_20px_rgba(161,62,34,0.15)] transition">
+        <div className="relative bg-graySoft rounded-full p-4 border border-accentBright/20 shadow-lg hover:shadow-[0_0_26px_rgba(255,79,0,0.28)] transition-smooth">
           <div className="flex items-center gap-3 relative z-10">
             <button
               onClick={togglePlay}
               type="button"
-              className="flex-shrink-0 w-10 h-10 rounded-full bg-accent text-black flex items-center justify-center hover:brightness-110 transition cursor-pointer"
+              className="flex-shrink-0 w-10 h-10 rounded-full bg-accentBright text-black flex items-center justify-center hover:brightness-110 transition-smooth cursor-pointer"
               title={isPlaying ? "Pausar" : "Reproducir"}
             >
               {isPlaying ? (
@@ -106,7 +106,7 @@ export default function AudioPlayer({
               )}
             </button>
 
-            <div className="flex items-center gap-2 bg-dark rounded-full px-3 py-1">
+            <div className="flex items-center gap-2 bg-dark rounded-2xl px-3 py-1.5 border border-accent/20">
               <input
                 type="range"
                 min="0"
@@ -114,7 +114,7 @@ export default function AudioPlayer({
                 step="0.01"
                 value={volume}
                 onChange={handleVolumeChange}
-                className="w-16 h-1 rounded-lg appearance-none cursor-pointer bg-gray-600 accent-accent"
+                className="w-16 h-1 rounded-lg appearance-none cursor-pointer bg-gray-600 accent-accentBright"
                 style={{ cursor: "pointer" }}
               />
               <span className="text-xs text-gray-400 whitespace-nowrap select-none">
@@ -127,7 +127,7 @@ export default function AudioPlayer({
             <motion.div
               animate={{ opacity: [0.5, 1, 0.5] }}
               transition={{ repeat: Infinity, duration: 1 }}
-              className="absolute inset-0 rounded-full border-2 border-accent opacity-50 pointer-events-none"
+              className="absolute inset-0 rounded-full border-2 border-accentBright opacity-50 pointer-events-none"
             />
           )}
         </div>

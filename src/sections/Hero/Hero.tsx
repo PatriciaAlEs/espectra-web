@@ -36,7 +36,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.15, duration: 0.5 }}
-            className="mt-10 max-w-xl text-lg text-gray-300"
+            className="mt-10 max-w-xl text-lg text-textPrimary/85"
           >
             Love music hate fascism
           </motion.p>
@@ -51,7 +51,7 @@ export default function Hero() {
               href="https://www.youtube.com/watch?v=RMNiKpaKgdU"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-6 py-3 rounded-md bg-accent text-black font-semibold shadow-md hover:brightness-105"
+              className="inline-block px-7 py-3.5 rounded-xl bg-accentBright text-black font-semibold shadow-[0_0_26px_rgba(255,79,0,0.35)] hover:brightness-110 transition-smooth"
             >
               Escuchar ahora
             </a>
@@ -62,9 +62,9 @@ export default function Hero() {
           <motion.div
             animate={{ y: [0, 10, 0] }}
             transition={{ repeat: Infinity, duration: 1.6 }}
-            className="w-6 h-10 border-2 border-gray-600 rounded-xl flex items-end justify-center px-1"
+            className="w-6 h-10 border-2 border-accent/60 rounded-2xl flex items-end justify-center px-1"
           >
-            <div className="w-1 h-2 bg-textPrimary rounded-sm mb-1" />
+            <div className="w-1 h-2 bg-accentBright rounded-sm mb-1" />
           </motion.div>
         </div>
       </div>

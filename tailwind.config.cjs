@@ -11,6 +11,7 @@ module.exports = {
                 dark: '#190F12',
                 graySoft: '#190F12',
                 accent: '#A13E22',
+                accentBright: '#FF4F00',
                 accentGlow: '#C27C60',
                 textPrimary: '#EAE9E8'
             },

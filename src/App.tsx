@@ -13,7 +13,7 @@ export default function App() {
     <div className="min-h-screen bg-background text-textPrimary font-display">
       <Hero />
 
-      <section id="releases">
+      <section id="releases" className="pt-10 md:pt-16">
         <Container>
           <ReleasesPlaceholder />
         </Container>

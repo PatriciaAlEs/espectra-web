@@ -90,19 +90,19 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="w-full relative px-6 py-4 mb-6 group overflow-hidden"
+          className="w-full relative px-6 py-4 mb-6 group overflow-hidden rounded-2xl"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
           {/* Fondo con gradiente cinematográfico */}
-          <div className="absolute inset-0 bg-gradient-to-r from-accent/20 via-accentGlow/10 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+          <div className="absolute inset-0 bg-gradient-to-r from-accentBright/20 via-accentGlow/10 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
           {/* Bordes cinematográficos */}
-          <div className="absolute inset-0 border border-accent/40 rounded-lg" />
+          <div className="absolute inset-0 border border-accentBright/40 rounded-2xl" />
           <div
-            className="absolute inset-0 border-2 border-transparent rounded-lg bg-clip-padding pointer-events-none"
+            className="absolute inset-0 border-2 border-transparent rounded-2xl bg-clip-padding pointer-events-none"
             style={{
-              backgroundImage: `linear-gradient(135deg, rgba(161, 62, 34, 0.3), rgba(194, 124, 96, 0.3), rgba(161, 62, 34, 0.3))`,
+              backgroundImage: `linear-gradient(135deg, rgba(255, 79, 0, 0.35), rgba(194, 124, 96, 0.28), rgba(161, 62, 34, 0.28))`,
               WebkitMaskImage:
                 "linear-gradient(#fff 0%, #fff calc(100% - 2px), transparent calc(100% - 2px))",
               maskImage:
@@ -111,7 +111,7 @@ const Contact: React.FC = () => {
           />
 
           {/* Glow effect */}
-          <div className="absolute -inset-0.5 rounded-lg bg-gradient-to-r from-accent via-accentGlow to-accent opacity-0 group-hover:opacity-40 blur-sm transition-opacity duration-500 -z-10" />
+          <div className="absolute -inset-0.5 rounded-2xl bg-gradient-to-r from-accentBright via-accentGlow to-accent opacity-0 group-hover:opacity-40 blur-sm transition-opacity duration-500 -z-10" />
 
           {/* Contenido del botón */}
           <div className="relative flex items-center justify-between">
@@ -121,7 +121,7 @@ const Contact: React.FC = () => {
             <motion.div
               animate={{ rotate: isOpen ? 180 : 0 }}
               transition={{ duration: 0.3 }}
-              className="text-accent text-2xl"
+              className="text-accentBright text-2xl"
             >
               ▼
             </motion.div>
@@ -139,10 +139,10 @@ const Contact: React.FC = () => {
               className="overflow-hidden"
             >
               <motion.div
-                className="relative p-8 rounded-lg border border-accent/30 bg-dark/80 backdrop-blur-sm"
+                className="relative p-8 rounded-2xl border border-accentBright/30 bg-dark/80 backdrop-blur-sm"
                 style={{
                   backgroundImage:
-                    "linear-gradient(135deg, rgba(161, 62, 34, 0.05) 0%, transparent 50%, rgba(194, 124, 96, 0.05) 100%)",
+                    "linear-gradient(135deg, rgba(255, 79, 0, 0.07) 0%, transparent 50%, rgba(194, 124, 96, 0.06) 100%)",
                 }}
               >
                 {/* Bordes cinematográficos decorativos */}
@@ -159,7 +159,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accentBright uppercase tracking-wider"
                     >
                       Nombre
                     </label>
@@ -171,7 +171,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="Tu nombre"
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 font-barlow"
+                      className="w-full px-4 py-3 rounded-xl bg-dark text-textPrimary border-2 border-accentBright/30 focus:outline-none focus:border-accentBright focus:ring-2 focus:ring-accentBright/45 transition-all placeholder-textPrimary/50 font-barlow"
                     />
                   </div>
 
@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accentBright uppercase tracking-wider"
                     >
                       Email
                     </label>
@@ -191,7 +191,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="tu@email.com"
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 font-barlow"
+                      className="w-full px-4 py-3 rounded-xl bg-dark text-textPrimary border-2 border-accentBright/30 focus:outline-none focus:border-accentBright focus:ring-2 focus:ring-accentBright/45 transition-all placeholder-textPrimary/50 font-barlow"
                     />
                   </div>
 
@@ -199,7 +199,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="subject"
-                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accentBright uppercase tracking-wider"
                     >
                       Asunto
                     </label>
@@ -211,7 +211,7 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="¿De qué se trata?"
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 font-barlow"
+                      className="w-full px-4 py-3 rounded-xl bg-dark text-textPrimary border-2 border-accentBright/30 focus:outline-none focus:border-accentBright focus:ring-2 focus:ring-accentBright/45 transition-all placeholder-textPrimary/50 font-barlow"
                     />
                   </div>
 
@@ -219,7 +219,7 @@ const Contact: React.FC = () => {
                   <div>
                     <label
                       htmlFor="message"
-                      className="block text-sm font-barlow font-semibold mb-2 text-accent uppercase tracking-wider"
+                      className="block text-sm font-barlow font-semibold mb-2 text-accentBright uppercase tracking-wider"
                     >
                       Mensaje
                     </label>
@@ -231,7 +231,7 @@ const Contact: React.FC = () => {
                       required
                       placeholder="Tu mensaje..."
                       rows={5}
-                      className="w-full px-4 py-3 rounded-lg bg-dark text-textPrimary border-2 border-accent/30 focus:outline-none focus:border-accent focus:ring-2 focus:ring-accent/50 transition-all placeholder-textPrimary/50 resize-none font-barlow"
+                      className="w-full px-4 py-3 rounded-xl bg-dark text-textPrimary border-2 border-accentBright/30 focus:outline-none focus:border-accentBright focus:ring-2 focus:ring-accentBright/45 transition-all placeholder-textPrimary/50 resize-none font-barlow"
                     />
                   </div>
 
@@ -240,12 +240,12 @@ const Contact: React.FC = () => {
                     <motion.div
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
-                      className={`p-4 rounded-lg text-center font-semibold ${
+                      className={`p-4 rounded-xl text-center font-semibold ${
                         status.type === "success"
-                          ? "bg-accent/20 text-accentGlow border border-accent/50"
+                          ? "bg-accentBright/20 text-accentGlow border border-accentBright/50"
                           : status.type === "error"
                             ? "bg-red-900/20 text-red-400 border border-red-500/50"
-                            : "bg-accent/10 text-textPrimary"
+                            : "bg-accentBright/10 text-textPrimary"
                       }`}
                     >
                       {status.message}
@@ -258,7 +258,7 @@ const Contact: React.FC = () => {
                     disabled={status.type === "loading"}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 px-6 rounded-lg bg-accent hover:bg-accent/90 disabled:opacity-50 disabled:cursor-not-allowed text-dark font-bebas text-2xl tracking-wider transition-all cinema-shadow"
+                    className="w-full py-4 px-6 rounded-2xl bg-accentBright hover:bg-accentBright/90 disabled:opacity-50 disabled:cursor-not-allowed text-dark font-bebas text-2xl tracking-wider transition-all cinema-shadow"
                   >
                     {status.type === "loading"
                       ? "ENVIANDO..."
@@ -275,7 +275,7 @@ const Contact: React.FC = () => {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mt-8 p-4 bg-yellow-900/20 border border-yellow-700/50 rounded-lg text-sm text-textPrimary/70"
+            className="mt-8 p-4 bg-yellow-900/20 border border-yellow-700/50 rounded-xl text-sm text-textPrimary/70"
           >
             <strong>⚙️ Configuración necesaria:</strong>
             <p className="mt-2 mb-2">
