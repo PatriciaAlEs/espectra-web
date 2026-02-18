@@ -85,7 +85,7 @@ export default function SocialsPlaceholder() {
                 margin: "0px 0px 0px 0px",
               }}
               custom={{ direction: index % 2 === 0 ? -1 : 1, order: index }}
-              className="w-64 h-40 bg-graySoft rounded-3xl overflow-hidden transition-[border-color,box-shadow] duration-300 ease-out group relative border-2 border-accentBright/20 hover:border-accentBright will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_12px_rgba(255,79,0,0.08)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_16px_rgba(255,79,0,0.15)]"
+              className="w-64 h-40 bg-graySoft rounded-3xl overflow-hidden transition-[border-color,box-shadow] duration-300 ease-out group relative border-2 border-accentBright/28 hover:border-accentBright will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.12)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_20px_rgba(255,79,0,0.2)]"
             >
               <div className="relative w-full h-full">
                 <img

@@ -53,7 +53,7 @@ export default function Hero() {
               rel="noopener noreferrer"
               className="inline-block px-7 py-3.5 rounded-xl bg-accentBright text-black font-semibold shadow-[0_0_26px_rgba(255,79,0,0.35)] hover:brightness-110 transition-smooth"
             >
-              Escuchar ahora
+            Último tema
             </a>
           </motion.div>
         </div>

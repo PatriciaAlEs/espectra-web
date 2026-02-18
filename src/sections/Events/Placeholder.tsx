@@ -68,7 +68,7 @@ export default function EventsPlaceholder() {
             whileHover="hover"
             viewport={{ once: false, amount: 0.22, margin: "0px 0px 0px 0px" }}
             custom={{ direction: -1, order: 0 }}
-            className="p-6 bg-graySoft rounded-3xl flex flex-col md:flex-row md:justify-between items-start md:items-center border border-accentBright/20 hover:border-accentBright/60 transition-[border-color,box-shadow] duration-300 ease-out group relative overflow-hidden will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_12px_rgba(255,79,0,0.08)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_16px_rgba(255,79,0,0.15)]"
+            className="p-6 bg-graySoft rounded-3xl flex flex-col md:flex-row md:justify-between items-start md:items-center border border-accentBright/28 hover:border-accentBright/70 transition-[border-color,box-shadow] duration-300 ease-out group relative overflow-hidden will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.12)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_20px_rgba(255,79,0,0.2)]"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-accentBright/6 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
             <div className="w-full md:w-2/3 relative z-10">
@@ -91,7 +91,7 @@ export default function EventsPlaceholder() {
             whileHover="hover"
             viewport={{ once: false, amount: 0.22, margin: "0px 0px 0px 0px" }}
             custom={{ direction: 1, order: 1 }}
-            className="p-6 bg-graySoft rounded-3xl flex flex-col md:flex-row md:justify-between items-start md:items-center border border-accentBright/20 hover:border-accentBright/60 transition-[border-color,box-shadow] duration-300 ease-out group relative overflow-hidden will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_12px_rgba(255,79,0,0.08)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_16px_rgba(255,79,0,0.15)]"
+            className="p-6 bg-graySoft rounded-3xl flex flex-col md:flex-row md:justify-between items-start md:items-center border border-accentBright/28 hover:border-accentBright/70 transition-[border-color,box-shadow] duration-300 ease-out group relative overflow-hidden will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.12)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_20px_rgba(255,79,0,0.2)]"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-accentBright/6 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
             <div className="w-full md:w-2/3 relative z-10">
