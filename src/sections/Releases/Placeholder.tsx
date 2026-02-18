@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
-import imgPlaceholder from "../../assets/images/espectra.png";
 
 export default function ReleasesPlaceholder() {
+  const [activeModalVideoUrl, setActiveModalVideoUrl] = React.useState<
+    string | null
+  >(null);
   const viewportWidth =
     typeof window !== "undefined" ? window.innerWidth : 1280;
   const isDesktop = viewportWidth >= 768;
@@ -45,6 +47,15 @@ export default function ReleasesPlaceholder() {
     },
   };
 
+  const firstPreviewVideoUrl =
+    "https://www.youtube.com/embed/aJiA3_-4q4Y?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=aJiA3_-4q4Y&playsinline=1";
+  const firstModalVideoUrl =
+    "https://www.youtube.com/embed/aJiA3_-4q4Y?autoplay=1&controls=1&modestbranding=1&rel=0&playsinline=1";
+  const secondPreviewVideoUrl =
+    "https://www.youtube.com/embed/XtClHpPdFkk?autoplay=1&mute=1&controls=0&modestbranding=1&rel=0&loop=1&playlist=XtClHpPdFkk&playsinline=1";
+  const secondModalVideoUrl =
+    "https://www.youtube.com/embed/XtClHpPdFkk?autoplay=1&controls=1&modestbranding=1&rel=0&playsinline=1";
+
   return (
     <section className="py-24 bg-dark urban-gradient relative overflow-hidden rounded-3xl">
       <div className="max-w-6xl mx-auto px-6">
@@ -71,20 +82,26 @@ export default function ReleasesPlaceholder() {
             whileHover="hover"
             viewport={{ once: false, amount: 0.18, margin: "0px 0px -8% 0px" }}
             custom={0}
-            className="bg-graySoft rounded-3xl p-6 border border-accentBright/20 hover:border-accentBright/60 transition-cinema group cursor-pointer relative overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.08)] hover:shadow-[0_14px_34px_rgba(0,0,0,0.38),0_0_18px_rgba(255,79,0,0.16)]"
+            className="bg-graySoft rounded-3xl p-6 border border-accentBright/20 hover:border-accentBright/60 transition-cinema group relative overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.08)] hover:shadow-[0_14px_34px_rgba(0,0,0,0.38),0_0_18px_rgba(255,79,0,0.16)]"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-accentBright/6 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
             <div className="relative overflow-hidden rounded-xl">
-              <img
-                src={imgPlaceholder}
-                alt="Lanzamiento 1"
-                className="w-full h-56 object-cover rounded-xl group-hover:scale-110 transition-all duration-500"
+              <iframe
+                src={firstPreviewVideoUrl}
+                title="Lanzamiento 1"
+                className="w-full h-56 rounded-xl pointer-events-none"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
               />
               <div className="absolute inset-0 bg-gradient-to-t from-accentBright/65 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-cinema" />
             </div>
-            <div className="absolute top-4 right-4 bg-accentBright text-black px-3 py-1 rounded-full text-xs font-barlow font-bold uppercase opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <button
+              type="button"
+              onClick={() => setActiveModalVideoUrl(firstModalVideoUrl)}
+              className="absolute top-4 right-4 bg-accentBright text-black px-3 py-1 rounded-full text-xs font-barlow font-bold uppercase opacity-0 group-hover:opacity-100 transition-all duration-300"
+            >
               Ver más
-            </div>
+            </button>
           </motion.div>
 
           <motion.div
@@ -94,22 +111,59 @@ export default function ReleasesPlaceholder() {
             whileHover="hover"
             viewport={{ once: false, amount: 0.18, margin: "0px 0px -8% 0px" }}
             custom={1}
-            className="bg-graySoft rounded-3xl p-6 border border-accentBright/20 hover:border-accentBright/60 transition-cinema group cursor-pointer relative overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.08)] hover:shadow-[0_14px_34px_rgba(0,0,0,0.38),0_0_18px_rgba(255,79,0,0.16)]"
+            className="bg-graySoft rounded-3xl p-6 border border-accentBright/20 hover:border-accentBright/60 transition-cinema group relative overflow-hidden shadow-[0_14px_34px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.08)] hover:shadow-[0_14px_34px_rgba(0,0,0,0.38),0_0_18px_rgba(255,79,0,0.16)]"
           >
             <div className="absolute inset-0 bg-gradient-to-bl from-accentBright/6 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-500" />
             <div className="relative overflow-hidden rounded-xl">
-              <img
-                src={imgPlaceholder}
-                alt="Lanzamiento 2"
-                className="w-full h-56 object-cover rounded-xl group-hover:scale-110 transition-all duration-500"
+              <iframe
+                src={secondPreviewVideoUrl}
+                title="Lanzamiento 2"
+                className="w-full h-56 rounded-xl pointer-events-none"
+                allow="autoplay; encrypted-media; picture-in-picture"
+                allowFullScreen
               />
               <div className="absolute inset-0 bg-gradient-to-t from-accentBright/65 via-black/35 to-transparent opacity-0 group-hover:opacity-100 transition-cinema" />
             </div>
-            <div className="absolute top-4 right-4 bg-accentBright text-black px-3 py-1 rounded-full text-xs font-barlow font-bold uppercase opacity-0 group-hover:opacity-100 transition-all duration-300">
+            <button
+              type="button"
+              onClick={() => setActiveModalVideoUrl(secondModalVideoUrl)}
+              className="absolute top-4 right-4 bg-accentBright text-black px-3 py-1 rounded-full text-xs font-barlow font-bold uppercase opacity-0 group-hover:opacity-100 transition-all duration-300"
+            >
               Ver más
-            </div>
+            </button>
           </motion.div>
         </div>
+
+        {activeModalVideoUrl && (
+          <div
+            className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm flex items-center justify-center p-4"
+            onClick={() => setActiveModalVideoUrl(null)}
+          >
+            <div
+              className="relative w-full max-w-4xl"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setActiveModalVideoUrl(null)}
+                className="absolute -top-10 right-0 text-accentBright text-sm uppercase tracking-[0.2em] font-barlow font-semibold"
+              >
+                Cerrar
+              </button>
+              <div className="relative w-full rounded-2xl overflow-hidden border border-accentBright/35 shadow-[0_20px_40px_rgba(0,0,0,0.55),0_0_24px_rgba(255,79,0,0.18)]">
+                <div className="relative w-full pt-[56.25%] bg-black">
+                  <iframe
+                    src={activeModalVideoUrl}
+                    title="Video completo"
+                    className="absolute inset-0 w-full h-full"
+                    allow="autoplay; encrypted-media; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

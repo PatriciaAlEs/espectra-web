@@ -3,6 +3,39 @@ import { motion } from "framer-motion";
 import heroImage from "../../assets/images/espectra-BN.png";
 
 export default function Hero() {
+  const title = "ESPECTRA";
+
+  const titleContainerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.16,
+        delayChildren: 0.22,
+      },
+    },
+  };
+
+  const letterVariants = {
+    hidden: {
+      opacity: 0,
+      y: -140,
+      rotate: -14,
+      filter: "blur(7px)",
+    },
+    visible: {
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      filter: "blur(0px)",
+      transition: {
+        type: "spring",
+        stiffness: 120,
+        damping: 18,
+        mass: 1.18,
+      },
+    },
+  };
+
   return (
     <section className="relative h-screen flex items-center">
       <div
@@ -20,16 +53,24 @@ export default function Hero() {
       <div className="relative z-10 w-full px-6 md:px-12">
         <div className="max-w-4xl">
           <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-7xl md:text-9xl font-extrabold uppercase leading-tight tracking-wider"
+            variants={titleContainerVariants}
+            initial="hidden"
+            animate="visible"
+            className="text-8xl md:text-[11rem] font-extrabold uppercase leading-[0.9] tracking-wider"
             style={{
               fontFamily: "'Bebas Neue', sans-serif",
               letterSpacing: "0.1em",
             }}
           >
-            ESPECTRA
+            {title.split("").map((letter, index) => (
+              <motion.span
+                key={`${letter}-${index}`}
+                variants={letterVariants}
+                className="inline-block"
+              >
+                {letter}
+              </motion.span>
+            ))}
           </motion.h1>
 
           <motion.p
@@ -51,9 +92,9 @@ export default function Hero() {
               href="https://www.youtube.com/watch?v=RMNiKpaKgdU"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-block px-7 py-3.5 rounded-xl bg-accentBright text-black font-semibold shadow-[0_0_26px_rgba(255,79,0,0.35)] hover:brightness-110 transition-smooth"
+              className="inline-block px-10 py-4.5 rounded-2xl bg-accentBright text-black text-lg md:text-xl font-semibold tracking-wide shadow-[0_0_32px_rgba(255,79,0,0.45)] hover:brightness-110 hover:scale-[1.03] transition-cinema"
             >
-            Último tema
+              Último tema
             </a>
           </motion.div>
         </div>
