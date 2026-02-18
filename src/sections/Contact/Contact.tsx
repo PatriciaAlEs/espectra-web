@@ -81,7 +81,10 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section className="py-20 px-6 md:px-12 relative overflow-hidden">
+    <section
+      id="contact"
+      className="py-20 px-6 md:px-12 relative overflow-hidden"
+    >
       <div className="max-w-2xl mx-auto">
         {/* Botón de apertura/cierre desplegable */}
         <motion.button

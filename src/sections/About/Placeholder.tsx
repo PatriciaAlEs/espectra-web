@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import imgPlaceholder from "../../assets/images/espectra.png";
+import imgPlaceholder from "../../assets/images/sobre-mi.png";
 
 export default function AboutPlaceholder() {
   const viewportWidth =
@@ -43,8 +43,11 @@ export default function AboutPlaceholder() {
             QUIÉN ES ESPECTRA
           </h2>
           <p className="mt-4 max-w-xl text-textPrimary/80 font-barlow text-lg leading-relaxed">
-            Manifiesto breve. Texto directo y condensado, máximo seis líneas
-            para mantener impacto y ritmo.
+            Sin plan ni destino, solo intuición y verdad.
+            <br />
+            Entre silencios, errores y horas a solas, encontré una forma de decir lo que no sabía explicar con palabras.
+            <br />
+            La música no fue un plan, fue un refugio.
           </p>
           <div className="mt-6 h-1 w-24 bg-gradient-to-r from-accentBright to-accentGlow rounded-full" />
         </motion.div>

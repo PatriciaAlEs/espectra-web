@@ -6,6 +6,7 @@ import EventsPlaceholder from "./sections/Events/Placeholder";
 import SocialsPlaceholder from "./sections/Socials/Placeholder";
 import Contact from "./sections/Contact/Contact";
 import Container from "./components/layout/Container";
+import SectionScrollHint from "./components/ui/SectionScrollHint";
 
 function SectionDivider({ className = "" }: { className?: string }) {
   return (
@@ -51,6 +52,8 @@ export default function App() {
       <SectionDivider />
 
       <Contact />
+
+      <SectionScrollHint />
     </div>
   );
 }

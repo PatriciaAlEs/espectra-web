@@ -120,9 +120,11 @@ export default function SocialsPlaceholder() {
           }}
         >
           <h3 className="text-accentBright uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">
-            Redes Sociales
+            Conecta conmigo
           </h3>
-          <h2 className="font-bebas text-textPrimary mb-8">CONECTA CONMIGO</h2>
+          <h2 className="font-bebas text-textPrimary mb-8">
+            PUEDES SEGUIRME EN MIS RRSS
+          </h2>
         </motion.div>
 
         <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6">

@@ -10,8 +10,8 @@ export default function Hero() {
     hidden: {},
     visible: {
       transition: {
-        staggerChildren: 0.16,
-        delayChildren: 0.22,
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
       },
     },
   };
@@ -19,9 +19,9 @@ export default function Hero() {
   const letterVariants = {
     hidden: {
       opacity: 0,
-      y: -140,
-      rotate: -14,
-      filter: "blur(7px)",
+      y: -190,
+      rotate: -16,
+      filter: "blur(8px)",
     },
     visible: {
       opacity: 1,
@@ -30,9 +30,9 @@ export default function Hero() {
       filter: "blur(0px)",
       transition: {
         type: "spring",
-        stiffness: 120,
-        damping: 18,
-        mass: 1.18,
+        stiffness: 82,
+        damping: 11,
+        mass: 1.5,
       },
     },
   };
@@ -97,16 +97,6 @@ export default function Hero() {
                 className="max-w-full"
               />
             </div>
-          </motion.div>
-        </div>
-
-        <div className="absolute bottom-12 left-6 md:left-12">
-          <motion.div
-            animate={{ y: [0, 10, 0] }}
-            transition={{ repeat: Infinity, duration: 2.2 }}
-            className="w-6 h-10 border-2 border-accent/60 rounded-2xl flex items-end justify-center px-1"
-          >
-            <div className="w-1 h-2 bg-accentBright rounded-sm mb-1" />
           </motion.div>
         </div>
       </div>
