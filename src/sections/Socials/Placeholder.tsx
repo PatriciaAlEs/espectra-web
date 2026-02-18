@@ -4,7 +4,10 @@ import { motion } from "framer-motion";
 const socials = [
   { name: "Instagram", url: "https://www.instagram.com/espectra.cks/" },
   { name: "YouTube", url: "https://www.youtube.com/watch?v=RMNiKpaKgdU" },
-  { name: "Spotify", url: "https://www.instagram.com/espectra.cks/" },
+  {
+    name: "Spotify",
+    url: "https://open.spotify.com/artist/2oearEcQzcoLJqP2KQTpLk?si=SVdErPCGRM-2DK5VKJO5MQ",
+  },
 ];
 
 function SocialIcon({ name }: { name: string }) {
