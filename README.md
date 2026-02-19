@@ -78,4 +78,4 @@ npm run dev
 👩‍💻 Author
 
 Patricia Álvarez
-Frontend Developer
+FullStack Developer
