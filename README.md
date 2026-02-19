@@ -1,6 +1,10 @@
 # ✨ Espectra
 
-![Espectra demo](./readme-assets/espectra-web.gif)
+
+<p align="center">
+  <img src="./readme-assets/espectra-web.gif" alt="Espectra demo" width="900"/>
+</p>
+
 
 Espectra es una web conceptual centrada en crear una experiencia visual moderna, combinando diseño, animación y arquitectura frontend escalable.
 
