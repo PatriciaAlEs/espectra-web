@@ -2,16 +2,16 @@ import React from "react";
 import { motion } from "framer-motion";
 
 const socials = [
-  { name: "Instagram", url: "https://www.instagram.com/espectra.cks/" },
   { name: "YouTube", url: "https://www.youtube.com/watch?v=RMNiKpaKgdU" },
   {
     name: "Spotify",
     url: "https://open.spotify.com/artist/2oearEcQzcoLJqP2KQTpLk?si=SVdErPCGRM-2DK5VKJO5MQ",
   },
+  { name: "Instagram", url: "https://www.instagram.com/espectra.cks/" },
 ];
 
 function SocialIcon({ name }: { name: string }) {
-  const iconClassName = "w-16 h-16 text-accentBright";
+  const iconClassName = "w-12 h-12 md:w-14 md:h-14 text-accentBright";
 
   if (name === "Instagram") {
     return (
@@ -19,13 +19,15 @@ function SocialIcon({ name }: { name: string }) {
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
-        strokeWidth="1.8"
+        strokeWidth="2.1"
+        strokeLinecap="round"
+        strokeLinejoin="round"
         className={iconClassName}
         aria-hidden="true"
       >
         <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
         <circle cx="12" cy="12" r="4" />
-        <circle cx="17.5" cy="6.8" r="1" fill="currentColor" stroke="none" />
+        <circle cx="17.5" cy="6.8" r="1.2" fill="currentColor" stroke="none" />
       </svg>
     );
   }
@@ -68,51 +70,15 @@ function SocialIcon({ name }: { name: string }) {
   );
 }
 
-type SocialCardMotion = {
-  direction: -1 | 1;
-  order: number;
-};
-
 export default function SocialsPlaceholder() {
   const viewportWidth =
     typeof window !== "undefined" ? window.innerWidth : 1280;
   const isDesktop = viewportWidth >= 768;
-  const revealDuration = isDesktop ? 0.8 : 0.62;
   const headingOffset = isDesktop ? 80 : 34;
-  const headingDuration = isDesktop ? 0.8 : 0.62;
-  const sideOffset = isDesktop
-    ? Math.max(120, Math.round(viewportWidth * 0.14))
-    : Math.max(44, Math.round(viewportWidth * 0.12));
-
-  const socialCardVariants = {
-    hidden: ({ direction }: SocialCardMotion) => ({
-      opacity: 0,
-      x: direction * sideOffset,
-    }),
-    visible: ({ order }: SocialCardMotion) => ({
-      opacity: 1,
-      x: 0,
-      transition: {
-        duration: isDesktop ? 1.08 : 0.88,
-        ease: [0.22, 1, 0.36, 1],
-        delay: order * 0.045,
-      },
-    }),
-    hover: {
-      y: isDesktop ? -3 : -5,
-      scale: isDesktop ? 1.006 : 1.01,
-      transition: {
-        type: "spring",
-        stiffness: isDesktop ? 170 : 240,
-        damping: isDesktop ? 28 : 22,
-        mass: 0.8,
-      },
-    },
-  };
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden rounded-3xl">
-      <div className="max-w-6xl mx-auto px-6 text-center">
+    <section className="py-6 md:py-7 bg-background relative overflow-hidden rounded-3xl">
+      <div className="w-full max-w-5xl mx-auto px-6 md:px-10">
         <motion.div
           initial={{ opacity: 0, x: -headingOffset, y: 8, scale: 0.99 }}
           whileInView={{ opacity: 1, x: 0, y: 0, scale: 1 }}
@@ -121,45 +87,42 @@ export default function SocialsPlaceholder() {
             duration: isDesktop ? 1.16 : 0.94,
             ease: [0.22, 1, 0.36, 1],
           }}
+          className="flex items-center justify-between gap-2 flex-wrap md:flex-nowrap"
         >
-          <h3 className="text-accentBright uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-2">
-            Conecta conmigo
-          </h3>
-          <h2 className="font-bebas text-textPrimary mb-8">
-            PUEDES SEGUIRME EN MIS RRSS
-          </h2>
-        </motion.div>
+          <div className="flex items-center gap-1.5 md:gap-2 text-center md:text-left flex-wrap md:flex-nowrap">
+            <h3 className="text-accentBright uppercase text-sm tracking-[0.3em] font-barlow font-semibold mb-0 whitespace-nowrap">
+              Conecta conmigo
+            </h3>
+            <h2 className="font-bebas text-textPrimary text-[clamp(2rem,3.2vw,3.2rem)] leading-[1.02] whitespace-nowrap">
+              SÍGUEME EN MIS RRSS
+            </h2>
+          </div>
 
-        <div className="mt-8 flex flex-col md:flex-row items-center justify-center gap-6">
-          {socials.map((social, index) => (
-            <motion.a
-              key={social.name}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              variants={socialCardVariants}
-              initial="hidden"
-              whileInView="visible"
-              whileHover="hover"
-              viewport={{
-                once: false,
-                amount: 0.22,
-                margin: "0px 0px 0px 0px",
-              }}
-              custom={{ direction: index % 2 === 0 ? -1 : 1, order: index }}
-              className="w-64 h-40 bg-graySoft rounded-3xl overflow-hidden transition-[border-color,box-shadow] duration-300 ease-out group relative border-2 border-accentBright/28 hover:border-accentBright will-change-transform shadow-[0_12px_30px_rgba(0,0,0,0.34),0_0_14px_rgba(255,79,0,0.12)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.38),0_0_20px_rgba(255,79,0,0.2)]"
-            >
-              <div className="relative w-full h-full bg-gradient-to-t from-black/85 via-graySoft/95 to-black/80">
-                <div className="absolute inset-0 bg-gradient-to-t from-accentBright/45 via-black/35 to-transparent opacity-75 group-hover:opacity-90 transition-all" />
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="relative z-10 group-hover:scale-110 transition-transform">
-                    <SocialIcon name={social.name} />
-                  </div>
-                </div>
-              </div>
-            </motion.a>
-          ))}
-        </div>
+          <div className="flex items-center justify-center md:justify-end gap-1.5 md:gap-2.5">
+            {socials.map((social, index) => (
+              <motion.a
+                key={social.name}
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                initial={{ opacity: 0, y: 10 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, amount: 0.2 }}
+                transition={{
+                  duration: isDesktop ? 0.7 : 0.55,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: 0.06 * index,
+                }}
+                whileHover={{ y: -2, scale: 1.06 }}
+                whileTap={{ scale: 0.96 }}
+                aria-label={`Abrir ${social.name}`}
+                className="w-16 h-16 md:w-20 md:h-20 rounded-2xl border-2 border-accentBright/28 bg-graySoft/90 hover:border-accentBright transition-[border-color,box-shadow,transform] duration-300 ease-out flex items-center justify-center shadow-[0_12px_24px_rgba(0,0,0,0.3),0_0_10px_rgba(255,79,0,0.1)] hover:shadow-[0_12px_24px_rgba(0,0,0,0.34),0_0_16px_rgba(255,79,0,0.2)]"
+              >
+                <SocialIcon name={social.name} />
+              </motion.a>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );

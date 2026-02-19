@@ -18,6 +18,14 @@ function SectionDivider({ className = "" }: { className?: string }) {
 }
 
 export default function App() {
+  React.useEffect(() => {
+    if (typeof window === "undefined") return;
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+    window.scrollTo({ top: 0, left: 0, behavior: "auto" });
+  }, []);
+
   return (
     <div className="min-h-screen text-textPrimary font-display">
       <Hero />
@@ -51,7 +59,11 @@ export default function App() {
       </section>
       <SectionDivider />
 
-      <Contact />
+      <section id="contact">
+        <Container>
+          <Contact />
+        </Container>
+      </section>
 
       <footer className="mt-10 border-t border-accentBright/25 bg-dark/70">
         <Container>

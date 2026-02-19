@@ -16,6 +16,9 @@ interface FormStatus {
 
 const Contact: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isLargeScreen, setIsLargeScreen] = useState(() =>
+    typeof window !== "undefined" ? window.innerWidth >= 768 : false,
+  );
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -32,7 +35,18 @@ const Contact: React.FC = () => {
   React.useEffect(() => {
     // Reemplaza con tu PUBLIC_KEY de EmailJS
     emailjs.init("YOUR_PUBLIC_KEY");
+
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth >= 768);
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
+
+  const isFormVisible = isLargeScreen || isOpen;
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -81,11 +95,8 @@ const Contact: React.FC = () => {
   };
 
   return (
-    <section
-      id="contact"
-      className="py-20 px-6 md:px-12 relative overflow-hidden rounded-3xl"
-    >
-      <div className="max-w-2xl mx-auto">
+    <section className="py-10 md:py-12 px-4 md:px-6 relative overflow-hidden rounded-3xl border border-accentBright/20 bg-background">
+      <div className="h-full max-w-5xl mx-auto">
         {/* Botón de apertura/cierre desplegable */}
         <motion.button
           onClick={() => setIsOpen(!isOpen)}
@@ -93,7 +104,7 @@ const Contact: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.85 }}
-          className="w-full relative px-6 py-4 mb-6 group overflow-hidden rounded-2xl"
+          className="w-full relative px-6 py-4 mb-6 group overflow-hidden rounded-2xl md:hidden"
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
@@ -131,13 +142,23 @@ const Contact: React.FC = () => {
           </div>
         </motion.button>
 
+        <div className="hidden md:block mb-6">
+          <h2 className="font-bebas text-textPrimary text-5xl tracking-wider text-center">
+            CONTACTO
+          </h2>
+        </div>
+
         {/* Formulario desplegable */}
         <AnimatePresence>
-          {isOpen && (
+          {isFormVisible && (
             <motion.div
-              initial={{ opacity: 0, height: 0, y: -20 }}
+              initial={
+                isLargeScreen ? false : { opacity: 0, height: 0, y: -20 }
+              }
               animate={{ opacity: 1, height: "auto", y: 0 }}
-              exit={{ opacity: 0, height: 0, y: -20 }}
+              exit={
+                isLargeScreen ? undefined : { opacity: 0, height: 0, y: -20 }
+              }
               transition={{ duration: 0.58, ease: "easeInOut" }}
               className="overflow-hidden"
             >
@@ -157,7 +178,10 @@ const Contact: React.FC = () => {
                   mensaje.
                 </p>
 
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form
+                  onSubmit={handleSubmit}
+                  className="grid grid-cols-1 md:grid-cols-2 gap-6"
+                >
                   {/* Nombre */}
                   <div>
                     <label
@@ -199,7 +223,7 @@ const Contact: React.FC = () => {
                   </div>
 
                   {/* Asunto */}
-                  <div>
+                  <div className="md:col-span-2">
                     <label
                       htmlFor="subject"
                       className="block text-sm font-barlow font-semibold mb-2 text-accentBright uppercase tracking-wider"
@@ -219,7 +243,7 @@ const Contact: React.FC = () => {
                   </div>
 
                   {/* Mensaje */}
-                  <div>
+                  <div className="md:col-span-2">
                     <label
                       htmlFor="message"
                       className="block text-sm font-barlow font-semibold mb-2 text-accentBright uppercase tracking-wider"
@@ -233,8 +257,8 @@ const Contact: React.FC = () => {
                       onChange={handleChange}
                       required
                       placeholder="Tu mensaje..."
-                      rows={5}
-                      className="w-full px-4 py-3 rounded-xl bg-dark text-textPrimary border-2 border-accentBright/30 focus:outline-none focus:border-accentBright focus:ring-2 focus:ring-accentBright/45 transition-all placeholder-textPrimary/50 resize-none font-barlow"
+                      rows={4}
+                      className="w-full px-4 py-2.5 rounded-xl bg-dark text-textPrimary border-2 border-accentBright/30 focus:outline-none focus:border-accentBright focus:ring-2 focus:ring-accentBright/45 transition-all placeholder-textPrimary/50 resize-none font-barlow"
                     />
                   </div>
 
@@ -244,7 +268,7 @@ const Contact: React.FC = () => {
                       initial={{ opacity: 0, y: -10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ duration: 0.5, ease: "easeOut" }}
-                      className={`p-4 rounded-xl text-center font-semibold ${
+                      className={`md:col-span-2 p-4 rounded-xl text-center font-semibold ${
                         status.type === "success"
                           ? "bg-accentBright/20 text-accentGlow border border-accentBright/50"
                           : status.type === "error"
@@ -262,7 +286,7 @@ const Contact: React.FC = () => {
                     disabled={status.type === "loading"}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full py-4 px-6 rounded-2xl bg-accentBright hover:bg-accentBright/90 disabled:opacity-50 disabled:cursor-not-allowed text-dark font-bebas text-2xl tracking-wider transition-all cinema-shadow"
+                    className="md:col-span-2 w-full md:w-auto md:justify-self-center py-3 px-5 rounded-2xl bg-accentBright hover:bg-accentBright/90 disabled:opacity-50 disabled:cursor-not-allowed text-dark font-bebas text-xl tracking-wider transition-all cinema-shadow"
                   >
                     {status.type === "loading"
                       ? "ENVIANDO..."
@@ -275,7 +299,7 @@ const Contact: React.FC = () => {
         </AnimatePresence>
 
         {/* Instrucciones de configuración */}
-        {!isOpen && (
+        {!isLargeScreen && !isOpen && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
