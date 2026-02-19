@@ -7,7 +7,7 @@ export default function Hero() {
   const title = "ESPECTRA";
 
   return (
-    <section className="relative h-screen flex items-center">
+    <section className="relative h-screen flex items-center rounded-3xl overflow-hidden">
       <div
         className="absolute inset-0"
         style={{

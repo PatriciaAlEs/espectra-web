@@ -19,7 +19,7 @@ function SectionDivider({ className = "" }: { className?: string }) {
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background text-textPrimary font-display">
+    <div className="min-h-screen text-textPrimary font-display">
       <Hero />
       <SectionDivider className="mt-0 md:mt-0 mb-10 md:mb-14" />
 

@@ -11,7 +11,7 @@ export default function AboutPlaceholder() {
       : Math.max(56, Math.round(viewportWidth * 0.16));
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden rounded-3xl">
       <div className="max-w-6xl mx-auto px-6 md:flex md:items-center md:gap-12">
         <motion.div
           initial={{ opacity: 0, x: -sideOffset, scale: 0.985 }}
@@ -45,7 +45,8 @@ export default function AboutPlaceholder() {
           <p className="mt-4 max-w-xl text-textPrimary/80 font-barlow text-lg leading-relaxed">
             Sin plan ni destino, solo intuición y verdad.
             <br />
-            Entre silencios, errores y horas a solas, encontré una forma de decir lo que no sabía explicar con palabras.
+            Entre silencios, errores y horas a solas, encontré una forma de
+            decir lo que no sabía explicar con palabras.
             <br />
             La música no fue un plan, fue un refugio.
           </p>

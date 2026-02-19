@@ -14,13 +14,37 @@ body,
 
 body {
   @apply bg-background text-textPrimary antialiased;
-  background:
-    radial-gradient(
-      circle at 18% 12%,
-      rgba(255, 79, 0, 0.08) 0%,
-      transparent 38%
-    ),
-    linear-gradient(180deg, #0c0c0c 0%, #0a0a0a 50%, #0c0c0c 100%);
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(180deg, #0c0c0c 0%, #0a0a0a 50%, #0c0c0c 100%);
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  left: -35%;
+  right: -35%;
+  top: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  transform: translateX(-55%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 138, 56, 0.08) 28%,
+    rgba(255, 101, 24, 0.28) 52%,
+    rgba(255, 79, 0, 0.14) 68%,
+    transparent 86%
+  );
+  filter: blur(64px);
+  animation: body-orange-sweep 8s ease-in-out infinite;
 }
 
 h1,
@@ -196,5 +220,24 @@ h3 {
   50% {
     opacity: 1;
     transform: scaleX(1);
+  }
+}
+
+@keyframes body-orange-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-55%);
+  }
+  12% {
+    opacity: 0.62;
+  }
+  34% {
+    opacity: 0.32;
+    transform: translateX(45%);
+  }
+  40%,
+  100% {
+    opacity: 0;
+    transform: translateX(50%);
   }
 }

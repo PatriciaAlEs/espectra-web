@@ -111,7 +111,7 @@ export default function SocialsPlaceholder() {
   };
 
   return (
-    <section className="py-24 bg-background relative overflow-hidden">
+    <section className="py-24 bg-background relative overflow-hidden rounded-3xl">
       <div className="max-w-6xl mx-auto px-6 text-center">
         <motion.div
           initial={{ opacity: 0, x: -headingOffset, y: 8, scale: 0.99 }}
