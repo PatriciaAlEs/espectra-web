@@ -70,7 +70,6 @@ Este proyecto se centró especialmente en:
 
 
 git clone https://github.com/PatriciaAlEs/espectra-web
-cd spectra-landing
 npm install
 npm run dev
 
