@@ -34,7 +34,7 @@ const Contact: React.FC = () => {
   // Inicializar EmailJS
   React.useEffect(() => {
     // Reemplaza con tu PUBLIC_KEY de EmailJS
-    emailjs.init("YOUR_PUBLIC_KEY");
+    emailjs.init("JXXBN1TkTnfxFFRRM");
 
     const handleResize = () => {
       setIsLargeScreen(window.innerWidth >= 768);
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
 
     try {
       // Reemplaza con tu SERVICE_ID y TEMPLATE_ID de EmailJS
-      const result = await emailjs.send("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", {
+      const result = await emailjs.send("service_3npphef", "template_2ogwin9", {
         to_email: "espectra.cks@gmail.com",
         from_name: formData.name,
         from_email: formData.email,
